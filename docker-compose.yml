@@ -18,3 +18,15 @@ services:
       RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
       RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD}
 
+  iot_app:
+    restart: on-failure
+    container_name: ${APP_HOST}
+    env_file: .env
+    build:
+      context: .
+    ports:
+      - '8080:8080'
+    links:
+      - rabbitmq
+
+
