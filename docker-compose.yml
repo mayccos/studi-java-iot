@@ -25,4 +25,18 @@ services:
     links:
       - rabbitmq
 
+  mariadb:
+    restart: on-failure
+    container_name: ${DB_HOST}
+    env_file: .env
+    image: mariadb:10.7.8
+    ports:
+      - '3306:3306'
+    links:
+      - iot_app
+    environment:
+      MYSQL_USER: iot_app
+      MYSQL_PASSWORD: iot_password&Studi
+      MYSQL_DATABASE: iot_bdd
+
 
