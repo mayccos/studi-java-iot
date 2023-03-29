@@ -5,7 +5,6 @@ COPY config/definitions.json /etc/rabbitmq/definitions.json
 ADD init.sh /init.sh
 RUN chmod +x /init.sh
 
-EXPOSE 15692 5672
-CMD ["/init.sh"]
+EXPOSE 15672 5672
 #ENTRYPOINT ["docker-entrypoint.sh"]
-CMD ["rabbitmq-server"]
+CMD ["/init.sh | rabbitmq-server"]

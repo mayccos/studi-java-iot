@@ -12,6 +12,7 @@
     {"name":"/"}
   ],
   "queues":[
-    {"name":"app","vhost":"/","durable":true,"auto_delete":false,"arguments":{}}
+    {"name":"app","vhost":"/","durable":true,"auto_delete":false,"arguments":{}},
+    {"name":"temperature","vhost":"/","durable":true,"auto_delete":false,"arguments":{}}
   ]
 }
