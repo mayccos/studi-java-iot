@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 public class Temperature {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private LocalDateTime dateCollecte;
