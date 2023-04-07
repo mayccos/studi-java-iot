@@ -1,12 +1,9 @@
 package com.studi.iot.ws;
 
-import com.studi.iot.pojo.Ampoule;
 import com.studi.iot.pojo.Temperature;
 import com.studi.iot.service.TemperatureService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController // produit et consomme du JSON
@@ -31,7 +28,7 @@ public class TemperatureWs {
 
     @PutMapping("/{id}")
     public void updateTemperature(@PathVariable Long id,@RequestBody Temperature temperature){
-        //DTO => Data Transfer Object
+        temperatureService.updateTemperature(id,temperature);
     }
 
     @PostMapping
