@@ -1,6 +1,5 @@
 package com.studi.iot.ws;
 
-import com.studi.iot.dto.IotDTO;
 import com.studi.iot.pojo.Ampoule;
 import com.studi.iot.pojo.Temperature;
 import com.studi.iot.service.TemperatureService;
