@@ -6,9 +6,13 @@ import java.util.List;
 
 public interface TemperatureService {
 
-    Temperature getTemperature();
+    Temperature getTemperatureById(Long id);
 
     void createTemperature(Temperature temperature);
 
     List<Temperature> getAllTemperatures();
+
+    void deleteTemperatureById(Long id);
+
+    void updateTemperature(Long id, Temperature temperature);
 }

@@ -17,8 +17,8 @@ public class TemperatureServiceImpl implements TemperatureService {
 
 
     @Override
-    public Temperature getTemperature() {
-        return null;
+    public Temperature getTemperatureById(Long id) {
+        return temperatureRepository.findById(id).orElse(null);
     }
 
     @Override
@@ -29,6 +29,27 @@ public class TemperatureServiceImpl implements TemperatureService {
     @Override
     public List<Temperature> getAllTemperatures() {
         return (List<Temperature>) temperatureRepository.findAll();
+    }
+
+    @Override
+    public void deleteTemperatureById(Long id) {
+        temperatureRepository.deleteById(id);
+    }
+
+    @Override
+    public void updateTemperature(Long id, Temperature temperature) {
+        Temperature maTemperature = this.getTemperatureById(id);
+
+        //Si j'ai une Temperature
+        if(maTemperature != null){
+
+            //je modifie les informations
+           maTemperature.setTemperature(temperature.getTemperature());
+           maTemperature.setDateCollecte(temperature.getDateCollecte());
+
+           //je le sauvegarde en base
+           temperatureRepository.save(maTemperature);
+        }
     }
 
 

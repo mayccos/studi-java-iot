@@ -1,12 +1,12 @@
 package com.studi.iot.ws;
 
+import com.studi.iot.dto.IotDTO;
+import com.studi.iot.pojo.Ampoule;
 import com.studi.iot.pojo.Temperature;
 import com.studi.iot.service.TemperatureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,6 +22,30 @@ public class TemperatureWs {
     public List<Temperature> getAllTemperatures(){
         return temperatureService.getAllTemperatures();
     }
+
+    //Obtention d'une temperature
+    @GetMapping("/{id}")
+    public Temperature getTemperatureById(@PathVariable Long id){
+        // localhost:3000/toto => toto est un PathVariable
+        return temperatureService.getTemperatureById(id);
+    }
+
+    @PutMapping("/{id}")
+    public void updateTemperature(@PathVariable Long id,@RequestBody Temperature temperature){
+        //DTO => Data Transfer Object
+    }
+
+    @PostMapping
+    public void createTemperature(@RequestBody Temperature temperature){
+        temperatureService.createTemperature(temperature);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteTemperatureById(@PathVariable Long id){
+        temperatureService.deleteTemperatureById(id);
+    }
+
+
 
 
 }

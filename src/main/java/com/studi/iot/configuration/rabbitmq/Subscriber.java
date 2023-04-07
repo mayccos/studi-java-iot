@@ -40,6 +40,7 @@ public class Subscriber {
     @RabbitListener(queues="ampoule")
     public void receivedAmpoule(String message) {
         Ampoule monAmpoule = null;
+        // {'state':'OFF','Intensite':15.6,'Couleur':'bleu'}
         try {
             monAmpoule = objectMapper.readValue(message, Ampoule.class);
         }catch (JsonProcessingException e){
