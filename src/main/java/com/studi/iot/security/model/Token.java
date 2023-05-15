@@ -1,12 +1,14 @@
 package com.studi.iot.security.model;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
+@Builder
 public class Token {
 
     @Id

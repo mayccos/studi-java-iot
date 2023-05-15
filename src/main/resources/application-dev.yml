@@ -8,6 +8,16 @@ spring:
     password: iot_password&Studi
     username: iot_app
     url: jdbc:mariadb://localhost/iot_bdd
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQLDialect
 
 rabbit:
     ROUTING_KEY_NAME: iot
@@ -16,7 +26,7 @@ rabbit:
 security:
   jwt:
     secret-key: $2y$10$RmiaImd0kv0POVu9Vu3SyeR62JL0Cl3vPYNk.b7612llIsuoxZz7S
-    expiration: 60000 # 86400000 # a day
+    expiration: 86400000 # a day
     refresh-token:
       expiration: 604800000 # 7 days
 
