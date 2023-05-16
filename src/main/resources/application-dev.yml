@@ -8,16 +8,14 @@ spring:
     password: iot_password&Studi
     username: iot_app
     url: jdbc:mariadb://localhost/iot_bdd
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    driver-class-name: org.mariadb.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     show-sql: false
     properties:
       hibernate:
         format_sql: true
-    database: mysql
-    database-platform: org.hibernate.dialect.MySQLDialect
 
 rabbit:
     ROUTING_KEY_NAME: iot
