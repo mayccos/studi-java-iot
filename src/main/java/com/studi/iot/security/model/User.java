@@ -24,7 +24,7 @@ public class User implements UserDetails {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private Long id_user;
 
     private String firstname;
 
@@ -74,7 +74,7 @@ public class User implements UserDetails {
     }
 
     public Long getId() {
-        return id;
+        return id_user;
     }
 
     public String getFirstname() {

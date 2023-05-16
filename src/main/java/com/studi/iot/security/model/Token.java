@@ -1,14 +1,13 @@
 package com.studi.iot.security.model;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-@Entity
-@Getter
-@Setter
+@Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
 public class Token {
 
     @Id
@@ -25,6 +24,6 @@ public class Token {
     private boolean expired;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name= "id")
+    @JoinColumn(name= "id_user")
     private User user;
 }
